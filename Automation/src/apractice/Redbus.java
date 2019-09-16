@@ -29,18 +29,22 @@ public class Redbus {
 		driver.findElement(By.xpath("//*[@id=\"dest\"]")).sendKeys("Hyderabad");
 		Thread.sleep(2000);
 		
-		WebElement date = driver.findElement(By.xpath("//*[@id=\"onward_cal\"]"));
-		String dateVal = "30-10-2019";
 		
-		selectDateByJS(driver, date, dateVal);
+		((JavascriptExecutor)driver).executeScript("document.getElementById('onward_cal').setAttribute('value','20-september-2019')");
+		Thread.sleep(2000);
 		
-	}
+		//**WebElement date = driver.findElement(By.xpath("//*[@id=\"onward_cal\"]"));
+		//String dateVal = "30-10-2019";
+		
+		//selectDateByJS(driver, date, dateVal);
+		
+	//}
 	
 	
-	public static void selectDateByJS(WebDriver driver, WebElement element, String dateVal) throws InterruptedException
-	{
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
-		js.executeScript("arguments[0].setAttribute('value','"+dateVal+"');", element);
+	//public static void selectDateByJS(WebDriver driver, WebElement element, String dateVal) throws InterruptedException
+	//{
+    	//JavascriptExecutor js = ((JavascriptExecutor) driver);
+		//js.executeScript("arguments[0].setAttribute('value','"+dateVal+"');", element);
 		
 	driver.findElement(By.xpath("//*[@id=\"search_btn\"]")).click();
 	Thread.sleep(2000);
